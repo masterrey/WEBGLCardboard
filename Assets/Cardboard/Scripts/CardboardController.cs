@@ -73,6 +73,10 @@ namespace TiltShift.Cardboard
 
             manualzoom = PlayerPrefs.GetFloat("manualzoom", 1.4f);
         }
+        private void Start()
+        {
+            pinchb();
+        }
 
         private void OnEnable()
         {
@@ -259,6 +263,26 @@ namespace TiltShift.Cardboard
 
                 UpdateSizes();
             }
+        }
+        void pinchb()
+        {
+           
+
+                manualzoom += zoomSpeed;
+                Debug.Log("zooming in " + manualzoom);
+                PlayerPrefs.SetFloat("manualzoom", manualzoom);
+                PlayerPrefs.Save();
+                // Optionally clamp the zoom level, e.g., between a min and max value
+                if (manualzoom > 1.7f)
+                {
+                    manualzoom = 1;
+                }
+                manualzoom = Mathf.Clamp(manualzoom, 1f, 2f);
+
+
+
+                UpdateSizes();
+           
         }
 
 
