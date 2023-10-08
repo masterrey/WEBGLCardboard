@@ -227,10 +227,10 @@ namespace TiltShift.Cardboard
         private void UpdateSizes()
         {
             _prevRatio = Ratio;
-            _lensDistortion.UpdateSize(ViewWidth, ViewHeight, ViewDPI * manualzoom);
+            _lensDistortion.UpdateSize(ViewWidth, ViewHeight, ViewDPI);
             InitCameras();
 
-            Debug.Log("Cardboard: Reinit graphics");
+           // Debug.Log("Cardboard: Reinit graphics");
         }
 
         //using 2 fingers to change the zoom in and out in the manualzoom variable
