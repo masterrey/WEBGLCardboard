@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using SojaExiles;
 
 namespace TiltShift.Cardboard.Controls
 {
@@ -61,6 +62,21 @@ namespace TiltShift.Cardboard.Controls
             }
 
             var cardboardControl = _hit.collider.gameObject.GetComponent<CardboardControlBase>();
+            if (cardboardControl == null)
+            {
+                var opencloseDoor = _hit.collider.gameObject.GetComponent<opencloseDoor>();
+                if (opencloseDoor != null)
+                {
+                    opencloseDoor.ForceOpening();
+                }
+
+                var agentMove = _hit.collider.gameObject.GetComponent<AgentMove>();
+                if (agentMove != null)
+                {
+                    agentMove.moveto();
+                }
+
+            }
 
             if (GazeClicking)
             {

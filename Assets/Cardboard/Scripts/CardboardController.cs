@@ -214,7 +214,7 @@ namespace TiltShift.Cardboard
 
         private void Update()
         {
-            pinch();
+           // pinch();
             if (Mathf.Abs(_prevRatio - Ratio) < 0.001f)
             {
                 return;
