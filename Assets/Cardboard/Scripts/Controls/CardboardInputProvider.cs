@@ -75,6 +75,11 @@ namespace TiltShift.Cardboard.Controls
                 {
                     agentMove.moveto();
                 }
+                var agenttalk = _hit.collider.gameObject.GetComponent<AgentTalk>();
+                if (agenttalk != null)
+                {
+                    agenttalk.PlayEvent();
+                }
 
             }
 

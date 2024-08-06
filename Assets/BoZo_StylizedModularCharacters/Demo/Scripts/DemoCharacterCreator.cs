@@ -69,6 +69,7 @@ namespace Bozo.ModularCharacters
             SetColorPickerObject(inst.transform);
 
             MaterialFix(inst);
+
         }
 
         public void IndexUpSkin()
@@ -108,11 +109,13 @@ namespace Bozo.ModularCharacters
 
             var outfit = character.GetOutfit((OutfitType)Enum.Parse(typeof(OutfitType), type));
             colorPickerControl.ChangeObject(outfit);
+           
         }
 
         public void SetColorPickerObject(Transform outfit)
         {
             colorPickerControl.ChangeObject(outfit);
+           
         }
 
         public void MaterialFix(GameObject inst)
@@ -128,14 +131,20 @@ namespace Bozo.ModularCharacters
                         //material name without instance
                         string materialname = mat.name.Replace(" (Instance)", "");
 
-                        AssetDatabase.CreateAsset(mat, $"Assets/" + materialname + ".mat");
-                        //associate the material to the item on assetdatabase 
-                        item.materials[i] = AssetDatabase.LoadAssetAtPath<Material>($"Assets/" + materialname + ".mat");
-                        Debug.Log("Material is instance " + mat.name);
+                            AssetDatabase.CreateAsset(mat, $"Assets/Mat/" + materialname + ".mat");
+                            //associate the material to the item on assetdatabase 
+                            item.sharedMaterials[i] = AssetDatabase.LoadAssetAtPath<Material>($"Assets/Mat/" + materialname + ".mat");
+                            Debug.Log("Material is instance " + mat.name);
+
                     }
                 }
 
             }
+        }
+
+        public void MaterialFix()
+        {
+
         }
     }
 }
