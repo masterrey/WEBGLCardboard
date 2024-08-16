@@ -37,6 +37,19 @@ namespace Bozo.ModularCharacters
 
         private void Update()
         {
+            if(shapes.Count == 0)
+            {
+                return;
+            }
+            if (character == null)
+            {
+                return;
+            }
+            if (mesh == null)
+            {
+                return;
+            }
+            
             for (int i = 0; i < shapes.Count; i++)
             {
                 mesh.SetBlendShapeWeight(i, character.GetBlendShapeWeight(shapes[i]));
